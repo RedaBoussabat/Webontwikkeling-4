@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Person</title>
+</head>
+
+<body>
+<h1>Contact Tracing @ Campus Proximus</h1>
+<h2>Person Overview</h2>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="searchPage.html">Search</a></li>
+    </ul>
+</nav>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Date</th>
+            <th>Room</th>
+            <th>Email</th>
+            <th>GSM</th>
+        </tr>
+        </thead>
+        <tbody id="twenty"></tbody>
+    </table>
+
+    <br>
+    <div>
+        <form method="post" action="Controller">
+            <table>
+                <tr>
+                    <td><label for="firstName">First Name</label></td>
+                    <td><input type="text" id="firstName" name="firstName" value="testName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name</label></td>
+                    <td><input type="text" id="lastName" name="lastName" value="testLastName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="date">Date</label></td>
+                    <td><input type="date" id="date" name="date" required></td>
+                </tr>
+                <tr>
+                    <td><label for="room">Rooms</label></td>
+                    <td>
+                        <select name="room" id="room">
+                            <option value="C001">C001</option>
+                            <option value="C002">C002</option>
+                            <option value="C003">C003</option>
+                            <option value="C004">C004</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="gsm">Gsm</label></td>
+                    <td><input type="tel" id="gsm" name="gsm" required></td>
+                </tr>
+            </table>
+            <input type="button" id="registerButton" value="Register"/>
+            <script type="text/javascript" src="js/twenty.js"></script>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="js/twenty.js"></script>
+</body>
+</html>
