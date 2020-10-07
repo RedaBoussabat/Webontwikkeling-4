@@ -30,10 +30,25 @@ public class Controller extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         List<Person> twenty = personRepository.getLastTwentyPersons();
         String personJSON = this.toJSON(twenty);
         response.setContentType("application/json");
         response.getWriter().write(personJSON);
+
+   /*     String command = request.getParameter("command");
+        switch (command) {
+            case ("search"):
+                String dateString = request.getParameter("date");
+                Room room = Room.valueOf(request.getParameter("room"));
+                Date date = null;
+                List<Person> searched = personRepository.searchPerson(dateString, room);
+                String searchJSON = this.toJSON(searched);
+                response.setContentType("application/json");
+                response.getWriter().write(searchJSON);
+                break;
+        }*/
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

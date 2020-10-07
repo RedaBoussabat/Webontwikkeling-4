@@ -98,11 +98,10 @@ function addPerson(){
     gsm = "gsm=" + encodeURIComponent(gsmText);
 
 
-
-
     let information= firstName + "&" + lastName + "&" + date + "&" + room + "&" + email + "&" + gsm;
-    newPersonRequest.open("POST", "Controller?" +information, true);
+    newPersonRequest.open("POST", "Controller", true);
     newPersonRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     newPersonRequest.send(information);
+    updateTwenty();
     updateTwenty();
 }

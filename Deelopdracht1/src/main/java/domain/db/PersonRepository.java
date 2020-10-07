@@ -19,14 +19,15 @@ public class PersonRepository implements PersonRepositoryInt {
 
     @Override
     public void addPerson(Person person) {
-        if (person.getRoom().getAmount() < person.getRoom().getMax()){
+     /*   if (person.getRoom().getAmount() < person.getRoom().getMax()){
             persons.add(new Person(person.getFirstName(), person.getLastName() ,person.getRoom(), person.getDate(), person.getEmail(), person.getGsm()));
             int hoeveelheid = person.getRoom().getAmount();
             hoeveelheid++;
             person.getRoom().setAmount(hoeveelheid);
         } else {
             throw new IllegalArgumentException("Lokaaal is vol");
-        }
+        }*/
+        persons.add(person);
     }
 
     @Override
@@ -44,10 +45,10 @@ public class PersonRepository implements PersonRepositoryInt {
     }
 
     @Override
-    public List<Person> searchPerson(Date date, Room room) {
+    public List<Person> searchPerson(String date, Room room) {
         ArrayList found = new ArrayList();
         for (Person person : persons){
-            if (date == person.getDate() && room == person.getRoom()){
+            if (date == person.getDate().toString() && room == person.getRoom()){
                 found.add(person);
             }
         }

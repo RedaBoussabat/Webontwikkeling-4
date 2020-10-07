@@ -1,17 +1,25 @@
-async function searchPersons(){
-    let response = await fetch("/Controller?command=search");
-    let persons = await response.json();
-    showSearchPerson(persons);
-    await searchPersons();
+window.onclick = getSearched;
+
+function getSearched(){
+    fetch("Controller?command=search")
+        .then(response => response.json())
+        .then(data => searchPersons(data));
 }
 
-searchPersons();
+function searchPersons(persons) {
+    //let persons = JSON.parse(updateTwentyRequest.responseText);
+    let personsTable = document.getElementById("twenty");
+    personsTable.innerHTML = "";
+    for (let i = 0; i < persons.length; i++) {
+        let personTr = personsTable.childNodes[i];
 
-function showSearchPerson(persons){
-    let personDiv = document.getElementById("searched");
-    personDiv.innerHTML = "";
-    for(let i=0; i<persons.length; i++){
-
+        if (personTr == null) {
+            personTr = document.createElement('tr');
+            personTr = fillPersonTr(personTr, i, persons);
+            personsTable.appendChild(personTr);
+        } else {
+            personTr.removeChild(personTr.childNodes[i]);
+            personTr = fillPersonTr(personTr, i, persons);
+        }
     }
-    personDiv.innerHTML += "<p>" + person.firstName + " " + person.lastName + "</p>";
 }

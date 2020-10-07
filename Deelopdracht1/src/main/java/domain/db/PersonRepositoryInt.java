@@ -12,6 +12,6 @@ public interface PersonRepositoryInt {
 
     public abstract List<Person> getLastTwentyPersons();
 
-    public abstract List<Person> searchPerson(Date date, Room room);
+    public abstract List<Person> searchPerson(String date, Room room);
 
 }

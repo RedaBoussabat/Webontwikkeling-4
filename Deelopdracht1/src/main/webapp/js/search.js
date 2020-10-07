@@ -7,13 +7,13 @@ function getSearched(){
 }
 
 function searchPersons(persons) {
-    let persons = JSON.parse(updateTwentyRequest.responseText);
+    //let persons = JSON.parse(updateTwentyRequest.responseText);
     let personsTable = document.getElementById("twenty");
     personsTable.innerHTML = "";
-    for (let i = 0; i < persons.length; i++){
+    for (let i = 0; i < persons.length; i++) {
         let personTr = personsTable.childNodes[i];
 
-        if (personTr == null){
+        if (personTr == null) {
             personTr = document.createElement('tr');
             personTr = fillPersonTr(personTr, i, persons);
             personsTable.appendChild(personTr);
@@ -21,4 +21,5 @@ function searchPersons(persons) {
             personTr.removeChild(personTr.childNodes[i]);
             personTr = fillPersonTr(personTr, i, persons);
         }
+    }
 }
